@@ -99,7 +99,7 @@ export default class RequestParser {
     let p: T | string | null | Blob;
     const contentType = response.headers.get('content-type');
 
-    if (contentType === 'application/json')
+    if (contentType.includes('application/json'))
       // Object
       p = await response.json();
     else if (contentType && contentType.startsWith('text'))
